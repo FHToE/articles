@@ -31,4 +31,4 @@ curl --header "Content-Type: application/json" --header "Authorization: Bearer $
 curl --header "Content-Type: application/json" --header "Authorization: Bearer ${JWT_TOKEN}" "http://localhost:8080/api/article?page=0&size=3"
 
 - get article statistic(allowed for admins only)
-curl --header "Content-Type: application/json" --header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmOTFiZTA1YS01MDMzLTQ1YzEtYWIxMC1kYjhmN2RkMTYzZDgiLCJpYXQiOjE2Mjg0MzQ5NDYsImV4cCI6MTYyODUyMTM0Nn0.Od2aZ4pFYx0GBfBZ8QsHvubVps2WoeCgoAkeHO0lY9nhWoCYpMgq9NV8gYF9Q2prbQk3H3wLzErMvIdKc680fA" http://localhost:8080/api/article/statistic
+curl --header "Content-Type: application/json" --header "Authorization: Bearer ${JWT_TOKEN}" http://localhost:8080/api/article/statistic
