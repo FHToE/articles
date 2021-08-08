@@ -1,9 +1,6 @@
 package com.test.task.user;
 
-import com.test.task.auth.AuthService;
 import com.test.task.exception.ResourceNotFoundException;
-import com.test.task.role.RoleRepository;
-import com.test.task.role.model.Role;
 import com.test.task.security.oauth.UserPrincipal;
 import com.test.task.user.model.User;
 import lombok.AllArgsConstructor;

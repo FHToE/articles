@@ -1,7 +1,12 @@
 package com.test.task.role.model;
 
 import com.test.task.user.model.User;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.ToString;
 import org.apache.commons.lang3.builder.EqualsExclude;
 import org.hibernate.annotations.GenericGenerator;
 
