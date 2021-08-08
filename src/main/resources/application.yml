@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATASOURCE_URL:jdbc:postgresql://postgres-articles:5432/}
+#    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/articles}
+    username: ${DATASOURCE_USER:postgres}
+#    username: ${DATASOURCE_USER:articles}
+    password: ${DATASOURCE_PASSWORD:articlesPassword}
+  jpa:
+    database-platform: ${SPRING_JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
+  flyway:
+    locations: classpath:/db/migration
+server:
+  port: ${PORT:8080}
+
+auth:
+  tokenSecret: ${TOKEN_SECRET:mdzLa0RXxQX8mL9hFjctK9hCTDW4BQXHZXQZPPAKdD0LR6K0rB9rJrb6rM1otpWGXVABmxH0n4G1oFkp5Z03fGMXpvi3yeMq9jgxpnnNU6vP0j2UneEdm8Me1JK9qEQV}
+  tokenExpirationMsec: ${TOKEN_EXPIRATION:86400000}
+  refreshExpirationMsec: ${REFRESH_TOKEN_EXPIRATION:2592000000}
+

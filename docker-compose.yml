@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgres-articles:
+    image: postgres:11
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=articlesPassword
+      - POSTGRES_USER=postgres
+
+  api:
+    image: articles
+    container_name: articles
+    depends_on:
+      - postgres-articles
+    ports:
+      - '8080:8080'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
