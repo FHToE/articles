@@ -1,4 +1,4 @@
-1) To run application locally Docker should be installed
+1) To run application locally Docker should be installed.
 application starts with the following command:
 
 gradlew build & docker build -f articles.Dockerfile -t articles . & docker-compose up
