@@ -3,7 +3,6 @@ package com.test.task.article;
 import com.test.task.article.dto.ArticleDto;
 import com.test.task.article.dto.ArticlePerDayStatistic;
 import com.test.task.article.model.Article;
-import com.test.task.security.oauth.UserPrincipal;
 import com.test.task.user.UserRepository;
 import com.test.task.user.model.User;
 import lombok.AllArgsConstructor;
@@ -19,6 +18,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,7 +28,7 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
     private final UserRepository userRepository;
 
-    public ResponseEntity<?> addArticle(ArticleDto dto, UserPrincipal userPrincipal) {
+    public ResponseEntity<?> addArticle(ArticleDto dto, UUID userId) {
         if (articleRepository.findByTitle(dto.getTitle()).isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(String.format("Article with title %s already exists", dto.getTitle()));
         }
@@ -38,7 +38,7 @@ public class ArticleService {
         } catch (RuntimeException ex) {
             return ResponseEntity.badRequest().body("Bad date format");
         }
-        User user = userRepository.getById(userPrincipal.getId());
+        User user = userRepository.getById(userId);
         Article article = Article.builder()
                 .author(dto.getAuthor())
                 .content(dto.getContent())
