@@ -6,7 +6,7 @@ gradlew build & docker build -f articles.Dockerfile -t articles . & docker-compo
 2) Application is also available on Heroku: https://articles-moliinyk.herokuapp.com/
 First request will be time-consuming, since free heroku instance used
 
-3) Only /auth endpoints are available without authentication.
+3) Only auth endpoints are available without authentication.
 Pre-created 2 users with ADMIN and USER roles.
 
 Credentials:
